@@ -1,0 +1,47 @@
+﻿@model UploadFile.Models.SingleFileModel
+@{
+    ViewData["Title"] = "File Upload";
+}
+
+<form asp-action="ProcessFile" asp-controller="Upload" method="post" enctype="multipart/form-data">   
+    @{
+        var message = TempData["message"] ?? string.Empty;
+    }
+    <div class="row mt-2">
+        <div class="col-12">
+            <label class="col-form-label">Select .csv File</label>
+            <input asp-for="NowCsvFile" accept=".csv" class="form-control" />
+            <span asp-validation-for="NowCsvFile" class="text-danger"></span>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row mt-2">
+        <div class="col-12">
+            <label class="col-form-label">Select .xlsx or .xls File</label>
+            <input asp-for="BannerXlsxFile" accept=".xlsx,.xls" class="form-control" />
+            <span asp-validation-for="BannerXlsxFile" class="text-danger"></span>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row mt-2">
+        <div class="col-12">
+            <label class="col-form-label">Enter Destination Path For Save</label>
+            <input asp-for="FilePath" class="form-control" />
+            <span asp-validation-for="FilePath" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row mt-2">
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">Go</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var message = '@message';
+        if(message)
+            alert(message);
+    </script>
+</form>
