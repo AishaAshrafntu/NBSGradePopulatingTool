@@ -1,47 +1,32 @@
 ﻿@model UploadFile.Models.SingleFileModel
 @{
-    ViewData["Title"] = "File Upload";
+    ViewData["Title"] = "GradePopulatingTool";
 }
 
-<form asp-action="ProcessFile" asp-controller="Home" method="post" enctype="multipart/form-data">   
-    @{
-        var message = TempData["message"] ?? string.Empty;
-    }
-    <div class="row mt-2">
-        <div class="col-12">
-            <label class="col-form-label">Select .csv File</label>
-            <input asp-for="NowCsvFile" accept=".csv" class="form-control" />
-            <span asp-validation-for="NowCsvFile" class="text-danger"></span>
-        </div>
+<div class="container">
+    <div class="tab-content">
+        <br />
+
+        <form id="profile-form" method="post" asp-controller="Home" asp-action="ProcessFile" enctype="multipart/form-data">
+            <div class="form-result">
+                <div style="margin-right: 1rem;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label>NOW extract file</label>
+                        <input asp-for="NowCsvFile" accept=".csv" class="form-control" />
+                    </div>
+                    <span asp-validation-for="NowCsvFile" class="text-danger" style="margin-bottom: 25px"></span>
+                    <div class="form-group">
+                        <label>Banner EMS file </label>
+                        <input asp-for="BannerXlsxFile" accept=".xlsx,.xls" class="form-control" />
+                    </div>
+                    <span asp-validation-for="BannerXlsxFile" class="text-danger" style="margin-bottom: 25px"></span>
+
+                    <button id="update-profile-button" type="submit" class="form-button button">Go</button>
+                </div>
+
+            </div>
+        </form>
     </div>
-    <br/>
-    <br/>
-    <div class="row mt-2">
-        <div class="col-12">
-            <label class="col-form-label">Select .xlsx or .xls File</label>
-            <input asp-for="BannerXlsxFile" accept=".xlsx,.xls" class="form-control" />
-            <span asp-validation-for="BannerXlsxFile" class="text-danger"></span>
-        </div>
-    </div>
-    <br/>
-    <br/>
-    <div class="row mt-2">
-        <div class="col-12">
-            <label class="col-form-label">Enter Destination Path For Save</label>
-            <input asp-for="FilePath" class="form-control" />
-            <span asp-validation-for="FilePath" class="text-danger"></span>
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="row mt-2">
-        <div class="col-12">
-            <button type="submit" class="btn btn-success" >Go</button>
-        </div>
-    </div>
-    <script type="text/javascript">
-        var message = '@message';
-        if(message)
-            alert(message);
-    </script>
-</form>
+
+</div>

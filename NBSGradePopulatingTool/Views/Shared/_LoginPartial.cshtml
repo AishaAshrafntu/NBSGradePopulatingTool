@@ -1,17 +1,19 @@
 ﻿@using System.Security.Principal
 
-<ul class="navbar-nav">
-@if (User.Identity?.IsAuthenticated == true)
-{
-        <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+<ul class="user-wrapper">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li>
+            <span>Hello @User.Identity.Name!</span>
         </li>
-}
-else
-{
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        <li>
+            <a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a>
         </li>
-}
+    }
+    else
+    {
+        <li>
+            <a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        </li>
+    }
 </ul>

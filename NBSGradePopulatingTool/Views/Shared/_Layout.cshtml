@@ -3,48 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NBSGradePopulatingTool</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/NBSGradePopulatingTool.styles.css" asp-append-version="true" />
+    <title>Grade populating Tool - Nottingham Trent University</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="//www.ntu.ac.uk/favicon.ico" rel="Shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        .containerNew {
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NBSGradePopulatingTool</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"></a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+    <div class="site-header-wrapper">
+        <div class="container">
+            <header class="site-header">
+                <div class="site-header-title">
+                    <a title="StudentHub home" href="https://www.ntu.ac.uk/studenthub">Grade populating Tool</a>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+                <partial name="_LoginPartial" />
+            </header>
+        </div>
+    </div>
+    <div class="containerNew">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - NBSGradePopulatingTool - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <div class="wrapper">
+        <footer class="site-footer">
+            <div class="site-info">
+                <div style="padding-top: 2rem; padding-bottom: 2rem;" class="cell medium-4">
+                    <ul>
+                        <li>
+                            <a href="https://www.ntu.ac.uk"><img style="max-width: 250px; margin-bottom: 1rem" src="https://www.ntu.ac.uk/__data/assets/file/0032/1196906/ntu-logo-shield.svg" alt="Nottingham Trent University logo" width="250"></a>
+                        </li>
+                        <li>© Nottingham Trent University</li>
+                    </ul>
+                </div>
+                <div style="padding-top: 2rem; padding-bottom: 2rem;">
+                    <h3>NTU website policies</h3>
+                    <ul>
+                        <li><a href="https://www.ntu.ac.uk/policies/web-policies">About our website</a></li>
+                        <li><a href="https://www.ntu.ac.uk/i/gdpr" target="_blank">GDPR / Data Protection</a></li>
+                        <li><a href="https://www.ntu.ac.uk/about-us/ask-ntu-form">Get in touch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

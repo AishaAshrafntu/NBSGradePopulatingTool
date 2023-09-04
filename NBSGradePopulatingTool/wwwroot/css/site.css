@@ -1,22 +1,330 @@
-html {
-  font-size: 14px;
+﻿/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-ntu-pink: hsl(337, 100%, 45%);
+    --clr-dark-grey: hsl(0, 0%, 8%);
+    --clr-light-grey: hsv(0, 0%, 100%);
+
+    /* font-sizes */
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    
+    /* font-families */
+    --ff-sans-normal: "Univers LT Pro Roman", Arial, sans-serif;
+    --ff-sans-bold: "Univers LT Pro Bold", Arial, sans-serif;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Set border box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: var(--ff-sans-normal);
+    line-height: 1.5;
+    color: #000;
+}
+
+.container {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    max-width: 92.85714rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+/* ------------------- */
+/* Header              */
+/* ------------------- */
+.user-wrapper {
+    list-style: none;
+}
+
+    .user-wrapper > li {
+        color: white;
+        font-size: var(--fs-300);
+    }
+
+.site-header-wrapper {
+    background: #E8005A;
+    margin-bottom: 2.5rem;
+}
+
+.site-header-title a {
+    text-decoration: none;
+    color: #fff;
+    font-size: var(--fs-700);
+}
+
+    .site-header-title a:hover {
+        text-decoration: underline;
+    }
+
+
+a.skip-main {
+    position: absolute;
+    left: 10px;
+    top: -50px;
+}
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.5rem 0.71429rem;
+    align-items: center;
+}
+
+/* ------------------- */
+/* Footer              */
+/* ------------------- */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.wrapper {
+    background: var(--clr-dark-grey);
+}
+
+.site-footer {
+    max-width: 92.85714rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    background-color: #151515;
+    color: #fff;
+}
+
+    .site-footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .site-footer a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+
+/* ------------------- */
+/* Components          */
+/* ------------------- */
+
+.form-control {
+    padding: 1rem 1rem;
+    margin: 0.5rem 0 0.25rem;
+}
+
+input[readonly] {
+    background-color: #E8E8E8;
+    cursor: none;
+    pointer-events: none;
+}
+
+.textbox-small {
+    width: 10rem;
+    cursor: text;
+}
+
+.textbox-large {
+    width: 20rem;
+}
+
+.form-control:hover {
+    border-color: var(--clr-ntu-pink);
+}
+
+button {
+    transition: color 0.2s ease;
+}
+
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #E8005A;
+    padding: 1.1em 1.3em;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out,color 0.25s ease-out;
+    font-family: Arial,sans-serif;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .button:hover, .button:focus {
+        background-color: #ba0048;
+    }
+
+.form-button {
+    margin-left: 175px;
+    margin-top: 1rem;
+}
+
+.form-result {
+    display: grid;
+    grid-template-columns: 35rem 1fr;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.container {
+    padding-right: 0.71429rem;
+    padding-left: 0.71429rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+a {
+    line-height: inherit;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a {
+    background-color: transparent;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+@media print, screen and (min-width: 64em) .site-header-title {
+    font-size: 4.57143rem;
+}
+
+@media print, screen and (min-width: 40em) .site-header-title {
+    font-size: 3.28571rem;
+}
+
+.site-header-title {
+    font-family: "Univers LT Pro Bold",Arial,sans-serif;
+    font-size: 2.14286rem;
+    flex: 1 1 auto;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+.no-results {
+    color: red;
+    font-weight: 600;
 }

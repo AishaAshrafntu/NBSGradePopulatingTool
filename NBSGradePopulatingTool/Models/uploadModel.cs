@@ -16,11 +16,7 @@ namespace UploadFile.Models
         [Required(ErrorMessage = "Please select Xls or .xlsx file")]
         public required IFormFile BannerXlsxFile { get; set; }
 
-        [Required(ErrorMessage = "Please enter destination path")]
-        public required string FilePath { get; set; }
-
-
-
+        
     }
 
     
