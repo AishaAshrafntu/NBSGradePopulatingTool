@@ -11,9 +11,9 @@ namespace UploadFile.Models
     {
        
         
-        [Required(ErrorMessage = "Please select .csv file")]
+        [Required(ErrorMessage = "Please select NOW extract file")]
         public required IFormFile NowCsvFile { get; set; }
-        [Required(ErrorMessage = "Please select Xls or .xlsx file")]
+        [Required(ErrorMessage = "Please select Banner EMS file")]
         public required IFormFile BannerXlsxFile { get; set; }
 
         
