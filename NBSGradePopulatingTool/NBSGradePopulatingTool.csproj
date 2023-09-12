@@ -9,7 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.1" />
-    <PackageReference Include="IronXL.Excel" Version="2023.9.29" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.10" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.25.3" />
